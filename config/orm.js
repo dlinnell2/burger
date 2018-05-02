@@ -1,22 +1,22 @@
 var connection = require('./connection.js');
 
 var orm = {
-    selectAll: function(table){
+    selectAll: function(table, callback){
         connection.query('SELECT * FROM ??', [table], function (err, sqlData){
             if(err) throw(err);
-            return sqlData;
+            callback(sqlData);
         });
     },
-    insertOne: function(table, column, burger){
-        connection.query('INSERT INTO ?? (??) VALUES (?)', [table, column, burger], function (err, sqlData){
+    insertOne: function(table, colVal, callback){
+        connection.query('INSERT INTO ?? SET ?', [table, colVal], function (err, sqlData){
             if(err) throw(err);
-            return sqlData;
+            callback(sqlData);
         })
     },
-    updateOne: function(table, columnValue, burgerID){
-        connection.query('UPDATE ?? SET ? WHERE ?', [table, columnValue, burgerID], function (err, sqlData){
+    updateOne: function(table, colVal, id, callback){
+        connection.query('UPDATE ?? SET ? WHERE id = ?', [table, colVal, id], function (err, sqlData){
             if(err) throw(err);
-            return sqlData;
+            callback(sqlData);
         })
     }
 };

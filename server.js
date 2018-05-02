@@ -16,4 +16,4 @@ require('./controllers/burgers_controller.js')(app);
 
 app.listen(PORT, function(){
     console.log(`Listening on port ${PORT}`);
-})
+});
