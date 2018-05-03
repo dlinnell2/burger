@@ -11,6 +11,11 @@ var burger = {
             cb(data);
         });
     },
+    make: function(id, cb){
+        orm.updateOne('burgers', {devoured:0}, id, function(data){
+            cb(data);
+        });
+    },
     add: function(name, cb){
         orm.insertOne('burgers', name, function(data){
             cb(data);

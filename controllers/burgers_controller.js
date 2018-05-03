@@ -8,10 +8,19 @@ module.exports = function(app){
         
     });
 
-    app.put('/api/burger/:id', function(req,res){
+    app.put('/api/burger/eat/:id', function(req,res){
         var id = req.params.id
         console.log(id);
         burger.eat(id, function(data){
+            console.log(data);
+            res.status(200).end();
+        })
+    })
+
+    app.put('/api/burger/make/:id', function(req,res){
+        var id = req.params.id
+        console.log(id);
+        burger.make(id, function(data){
             console.log(data);
             res.status(200).end();
         })

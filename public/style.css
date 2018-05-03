@@ -17,7 +17,7 @@ img {
     text-align: center;
 }
 
-.devourButton {
+.devourButton, .makeButton {
     margin-top: 5px;
 }
 

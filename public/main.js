@@ -3,10 +3,9 @@ $(document).ready(function(){
     $('.devourButton').on('click', function(){
         var id=$(this).attr('id');
         
-        $.ajax("/api/burger/" + id, {
+        $.ajax("/api/burger/eat/" + id, {
             type:"PUT"
         }).then(function(){
-            console.log('changed')
             location.reload();
         })
     
@@ -19,6 +18,17 @@ $(document).ready(function(){
                 location.reload();
             }
         })
+    })
+
+    $('.makeButton').on('click', function(){
+        var id=$(this).attr('id');
+        
+        $.ajax("/api/burger/make/" + id, {
+            type:"PUT"
+        }).then(function(){
+            location.reload();
+        })
+    
     })
 
 });
